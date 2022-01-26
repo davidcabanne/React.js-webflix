@@ -60,6 +60,7 @@ const Card = ({ movie, isAlreadyAdded, cartMovies, onAdd, onRemove }) => {
       </ul>
 
       <div className="movie__overviewContainer">
+        <div className="movie__overviewOverlay"></div>
         {movie.overview ? (
           <div className="movie__overview">{movie.overview}</div>
         ) : (

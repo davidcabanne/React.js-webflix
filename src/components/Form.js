@@ -76,8 +76,9 @@ const Form = ({ cartMovies, onAddMovie, onRemoveMovie }) => {
             id="search-input"
             value={keywords}
             onChange={(event) => setKeywords(event.target.value)}
+            autocomplete="off"
           />
-          <div className="icon-search__container">
+          <div className="icon-search__container" onClick={handleSubmit}>
             <i className="fas fa-search icon-search"></i>
           </div>
         </form>

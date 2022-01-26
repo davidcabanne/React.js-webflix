@@ -14,10 +14,15 @@
   align-items: center;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 32px;
-  color: #b82e1f;
+.logo__svg {
+  width: 150px;
+  fill: #b82e1f;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.logo__svg:hover {
+  opacity: 0.75;
 }
 
 .header ul {
@@ -31,6 +36,7 @@ a {
 
 .navLink {
   color: white;
+  font-weight: 500;
   transition: 0.3s ease-in-out;
 }
 
