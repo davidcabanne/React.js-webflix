@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  listCartMovies,
+  addMovieToCart,
+  removeMoviefromCart,
+} from "./lib/cart.js";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 function App() {
+  const [movies, setMovies] = useState(listCartMovies());
+
+  const handleAddMovie = function (movie) {
+    // add movie to list
+    addMovieToCart(movie);
+    setMovies(listCartMovies());
+  };
+
+  const handleRemoveMovie = function (movie) {
+    // remove movie from list
+    removeMoviefromCart(movie.id);
+    setMovies(listCartMovies());
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                cartMovies={movies}
+                onAddMovie={(movie) => handleAddMovie(movie)}
+                onRemoveMovie={(movie) => handleRemoveMovie(movie)}
+              />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                onAddMovie={(movie) => handleAddMovie(movie)}
+                onRemoveMovie={(movie) => handleRemoveMovie(movie)}
+                movies={movies}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

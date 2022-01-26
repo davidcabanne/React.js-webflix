@@ -1,0 +1,45 @@
+.header {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__wrapper {
+  width: 90vw;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 32px;
+  color: #b82e1f;
+}
+
+.header ul {
+  display: flex;
+  gap: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navLink {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.navLink-active {
+  color: #b82e1f;
+  transition: 0.3s ease-in-out;
+}
+
+.navLink:hover,
+.navLink-active:hover {
+  opacity: 0.75;
+}
